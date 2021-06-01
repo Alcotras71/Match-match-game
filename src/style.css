@@ -84,53 +84,17 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-.header {
-  background: var(--main-color);
-}
-.header,
-.header a {
-  color: #fff;
+.wrapper {
+  height: 89vh;
+  overflow: hidden;
 }
 
-.header__wrapper {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 50px;
-  align-items: center;
-}
-
-.header__logo {
-  text-transform: uppercase;
-  color: #fff;
-  text-align: center;
-  font-weight: 700;
-}
-.header__logo span {
-  display: block;
-  margin-top: 5px;
-  background: #fff;
-  padding: 5px 20px;
-  color: var(--main-color);
-}
-
-.header__menu {
-  display: flex;
-}
-
-.header__links {
-  padding: 40px 20px;
-}
-.header__right-side {
-  display: flex;
-}
-.header__game {
-  margin-right: 50px;
-  padding: 10px 30px;
+.main__wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 35px;
+  width: 1000px;
   background: var(--secondary-color);
-  border-radius: 5px;
-  color: var(--main-color);
-  text-transform: uppercase;
-  font-weight: 500;
-}
-.header__avatar {
+  padding-top: 35px;
+  padding-bottom: 85px;
 }
