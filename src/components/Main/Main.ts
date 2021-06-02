@@ -1,15 +1,18 @@
+import './Main.scss';
+import BaseComponent from '../BaseComponent';
 import AboutGame from './AboutGame/AboutGame';
+import Game from './GamePage/Game';
 
-const Main = () => {
-  const mainWrapper = document.createElement('main');
-  mainWrapper.classList.add('main');
-  mainWrapper.innerHTML = `
-    <div class="main__wrapper">
-      ${AboutGame().outerHTML}
-    </div>
-  `;
+export default class Main extends BaseComponent {
+  private readonly game: Game;
 
-  return mainWrapper;
-};
+  private readonly aboutGame: AboutGame;
 
-export default Main;
+  constructor() {
+    super('main', ['main']);
+    this.game = new Game();
+    this.aboutGame = new AboutGame();
+    this.element.appendChild(this.game.element);
+    this.element.appendChild(this.aboutGame.element);
+  }
+}

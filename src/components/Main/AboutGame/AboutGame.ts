@@ -1,9 +1,20 @@
+import './AboutGame.scss';
 import gameImage from '../../../assets/images/game.jpg';
+import BaseComponent from '../../BaseComponent';
+import store from '../../../store/store';
+import { updateFirstName } from '../../../store/gameReducer';
 
-const AboutGame = () => {
-  const aboutGameSection = document.createElement('section');
-  aboutGameSection.classList.add('about-game-section');
-  aboutGameSection.innerHTML = `
+export default class AboutGame extends BaseComponent {
+  constructor() {
+    super('div', ['about-game-section']);
+
+    const onUpdateFirstName = (e: { target: HTMLInputElement }) => {
+      store.dispatch(updateFirstName(e.target.value));
+    };
+
+    const state = store.getState();
+
+    this.element.innerHTML = `
       <h2 class="about-game-section__title">How to play?</h2>
       <div class="about-game-section__wrapper">
         <div class="about-game-section__inner-left">
@@ -41,6 +52,11 @@ const AboutGame = () => {
                   class="form-control"
                   id="fname"
                   placeholder="Alex"
+                  oninput="
+${(e: { target: HTMLInputElement }) => {
+    store.dispatch(onUpdateFirstName(e));
+  }}"
+                  value='${state.aboutGamePage.firstNameText}'
                 />
               </div>
               <div class="mb-3">
@@ -78,9 +94,6 @@ const AboutGame = () => {
           </div>
         </div>
       </div>
-  `;
-
-  return aboutGameSection;
-};
-
-export default AboutGame;
+    `;
+  }
+}

@@ -1,0 +1,16 @@
+.main {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main__wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 35px;
+  width: 1000px;
+  background: var(--secondary-color);
+  padding-top: 35px;
+  padding-bottom: 85px;
+}

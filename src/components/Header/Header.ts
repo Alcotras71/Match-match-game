@@ -1,7 +1,11 @@
-const Header = () => {
-  const headerWrapper = document.createElement('div');
-  headerWrapper.classList.add('header');
-  headerWrapper.innerHTML = `
+import './Header.scss';
+import BaseComponent from '../BaseComponent';
+
+export default class Header extends BaseComponent {
+  constructor() {
+    super('header', ['header']);
+
+    this.element.innerHTML = `
     <div class="header__wrapper">
       <div class="header__logo">Match <span>match</span></div>
       <ul class="header__menu">
@@ -24,9 +28,6 @@ const Header = () => {
         </div>
       </div>
     </div>
-  `;
-
-  return headerWrapper;
-};
-
-export default Header;
+    `;
+  }
+}
